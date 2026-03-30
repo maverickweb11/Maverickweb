@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sandy's Imports — Fast & Secured from China to Ghana</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #07225a;
+      --navy-mid: #163a8a;
+      --gold: #c8960c;
+      --gold-light: #ffd97a;
+      --white: #ffffff;
+      --off-white: #f7f5f0;
+      --text: #1a1a1a;
+      --muted: #6b6b6b;
+      --border: rgba(0,0,0,0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 2rem;
+      background: rgba(7, 34, 90, 0.95);
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--gold-light); }
+
+    .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold-light); }
+
+    .nav-cta {
+      background: var(--gold-light);
+      color: var(--navy) !important;
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-weight: 500 !important;
+    }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { width: 24px; height: 2px; background: var(--white); border-radius: 2px; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(150deg, #07225a 0%, #163a8a 55%, #1a5298 100%);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 7rem 2rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 80%, rgba(200,150,12,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,217,122,0.15);
+      border: 1px solid rgba(255,217,122,0.35);
+      color: var(--gold-light);
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      padding: 7px 18px; border-radius: 30px;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.6rem, 8vw, 5rem);
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .hero-sub {
+      font-size: clamp(14px, 2.5vw, 17px);
+      color: rgba(255,255,255,0.7);
+      max-width: 520px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    .hero-buttons {
+      display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+
+    .btn-primary {
+      background: var(--gold-light);
+      color: var(--navy);
+      padding: 14px 32px;
+      border-radius: 30px;
+      font-size: 14px; font-weight: 500;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+      box-shadow: 0 4px 20px rgba(255,217,122,0.35);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(255,217,122,0.45); }
+
+    .btn-outline {
+      border: 1.5px solid rgba(255,255,255,0.4);
+      color: var(--white);
+      padding: 14px 32px;
+      border-radius: 30px;
+      font-size: 14px; font-weight: 400;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+
+    .hero-wave {
+      position: absolute; bottom: -1px; left: 0; right: 0;
+    }
+
+    .hero-stats {
+      display: flex; gap: 2.5rem; flex-wrap: wrap; justify-content: center;
+      margin-top: 3rem;
+      animation: fadeUp 0.6s 0.4s ease both;
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat strong { display: block; font-size: 1.8rem; font-weight: 700; color: var(--gold-light); font-family: 'Playfair Display', serif; }
+    .hero-stat span { font-size: 12px; color: rgba(255,255,255,0.6); letter-spacing: 0.5px; }
+
+    /* ── SECTIONS SHARED ── */
+    section { padding: 5rem 2rem; }
+
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      line-height: 1.2;
+      margin-bottom: 0.8rem;
+    }
+    .section-sub { color: var(--muted); font-size: 15px; line-height: 1.7; max-width: 560px; }
+
+    /* ── PRODUCTS ── */
+    #products { background: var(--off-white); }
+
+    .products-header { margin-bottom: 3rem; }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 16px;
+    }
+
+    .product-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.8rem 1rem 1.4rem;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      cursor: default;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(7,34,90,0.1);
+      border-color: rgba(7,34,90,0.2);
+    }
+
+    .product-emoji { font-size: 2.2rem; display: block; margin-bottom: 10px; }
+    .product-name { font-size: 13px; font-weight: 500; color: var(--text); }
+    .product-tag {
+      display: inline-block; margin-top: 6px;
+      font-size: 10px; background: #eef2ff; color: var(--navy-mid);
+      padding: 3px 10px; border-radius: 10px;
+    }
+
+    /* ── WHY US ── */
+    #why { background: var(--white); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      margin-top: 3rem;
+    }
+
+    .why-card {
+      padding: 1.8rem;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+    }
+    .why-card:nth-child(odd) { background: var(--off-white); }
+    .why-card:nth-child(even) { background: var(--white); }
+
+    .why-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: var(--navy);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; margin-bottom: 1rem;
+    }
+    .why-card h3 { font-size: 15px; font-weight: 500; margin-bottom: 0.4rem; }
+    .why-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* ── HOW IT WORKS ── */
+    #how { background: var(--navy); color: var(--white); }
+    #how .section-title { color: var(--white); }
+    #how .section-sub { color: rgba(255,255,255,0.6); }
+    #how .section-label { color: var(--gold-light); }
+
+    .steps { display: flex; gap: 0; flex-wrap: wrap; margin-top: 3rem; }
+
+    .step {
+      flex: 1; min-width: 180px;
+      padding: 1.5rem;
+      position: relative;
+    }
+    .step:not(:last-child)::after {
+      content: '→';
+      position: absolute; right: -8px; top: 50%;
+      transform: translateY(-50%);
+      color: var(--gold-light); font-size: 1.2rem;
+    }
+
+    .step-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem; font-weight: 700;
+      color: rgba(255,217,122,0.2);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .step h3 { font-size: 14px; font-weight: 500; margin-bottom: 0.4rem; color: var(--gold-light); }
+    .step p { font-size: 12px; color: rgba(255,255,255,0.55); line-height: 1.6; }
+
+    /* ── ORDER / CONTACT ── */
+    #order { background: var(--off-white); }
+
+    .order-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .order-info h2 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 1rem; }
+    .order-info p { color: var(--muted); font-size: 14px; line-height: 1.7; margin-bottom: 1.5rem; }
+
+    .contact-items { display: flex; flex-direction: column; gap: 14px; }
+
+    .contact-item {
+      display: flex; align-items: center; gap: 14px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 18px;
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .contact-item:hover { border-color: var(--navy-mid); transform: translateX(4px); }
+
+    .contact-item-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0;
+    }
+    .ci-whatsapp { background: #dcfce7; }
+    .ci-phone { background: #dbeafe; }
+    .ci-location { background: #fef9c3; }
+
+    .contact-item-text strong { display: block; font-size: 13px; font-weight: 500; }
+    .contact-item-text span { font-size: 12px; color: var(--muted); }
+
+    /* ORDER FORM */
+    .order-form {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 8px 40px rgba(7,34,90,0.07);
+    }
+    .order-form h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; margin-bottom: 1.5rem;
+    }
+
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; font-size: 12px; font-weight: 500; margin-bottom: 6px; color: var(--muted); }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 14px;
+      font-family: 'DM Sans', sans-serif;
+      background: var(--off-white);
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--navy-mid); background: var(--white); }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+
+    .form-submit {
+      width: 100%;
+      background: var(--navy);
+      color: var(--white);
+      border: none;
+      padding: 14px;
+      border-radius: 12px;
+      font-size: 14px; font-weight: 500;
+      font-family: 'DM Sans', sans-serif;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      margin-top: 0.5rem;
+    }
+    .form-submit:hover { background: var(--navy-mid); transform: translateY(-1px); }
+
+    .form-note { font-size: 11px; color: var(--muted); text-align: center; margin-top: 10px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #04183e;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 2rem;
+      font-size: 12px;
+    }
+    footer strong { color: var(--gold-light); }
+
+    /* ── TOAST ── */
+    #toast {
+      position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(80px);
+      background: #07225a; color: var(--white);
+      padding: 12px 24px; border-radius: 30px;
+      font-size: 13px; font-weight: 500;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+      z-index: 999;
+    }
+    #toast.show { transform: translateX(-50%) translateY(0); }
+
+    /* ── WHATSAPP FLOAT ── */
+    .wa-float {
+      position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 200;
+      width: 56px; height: 56px; border-radius: 50%;
+      background: #25d366;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+      text-decoration: none;
+      font-size: 26px;
+      transition: transform 0.2s;
+    }
+    .wa-float:hover { transform: scale(1.1); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 60px; left: 0; right: 0; background: rgba(7,34,90,0.98); padding: 1.5rem 2rem; gap: 1.2rem; }
+      .hamburger { display: flex; }
+      .order-wrapper { grid-template-columns: 1fr; }
+      .steps { flex-direction: column; }
+      .step::after { display: none; }
+      section { padding: 3.5rem 1.2rem; }
+      .hero { padding: 6rem 1.5rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">Sandy's <span>Imports</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#products">Products</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#order" class="nav-cta">Order Now</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-badge">🌏 Fast &amp; Secured · China to Ghana</div>
+    <h1>Quality Imports,<br><em>Delivered to You</em></h1>
+    <p class="hero-sub">From kitchen appliances to ladies wear — Sandy's Imports brings the best of China straight to your door in Awoshe, Ghana.</p>
+    <div class="hero-buttons">
+      <a href="#order" class="btn-primary">Place an Order</a>
+      <a href="#products" class="btn-outline">Browse Products</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><strong>9+</strong><span>Product Categories</span></div>
+      <div class="hero-stat"><strong>100%</strong><span>Secured Import</span></div>
+      <div class="hero-stat"><strong>China</strong><span>Direct Source</span></div>
+    </div>
+    <svg class="hero-wave" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,60 C480,0 960,0 1440,60 L1440,60 L0,60 Z" fill="#f7f5f0"/>
+    </svg>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="products">
+    <div class="container">
+      <div class="products-header">
+        <div class="section-label">What We Sell</div>
+        <h2 class="section-title">Our Product Range</h2>
+        <p class="section-sub">We import a wide selection of quality goods directly from China — at prices you'll love.</p>
+      </div>
+      <div class="products-grid">
+        <div class="product-card"><span class="product-emoji">👜</span><div class="product-name">Bags</div><span class="product-tag">Fashion</span></div>
+        <div class="product-card"><span class="product-emoji">🍳</span><div class="product-name">Kitchen Appliances</div><span class="product-tag">Home</span></div>
+        <div class="product-card"><span class="product-emoji">👗</span><div class="product-name">Dresses</div><span class="product-tag">Fashion</span></div>
+        <div class="product-card"><span class="product-emoji">🌸</span><div class="product-name">Perfume</div><span class="product-tag">Beauty</span></div>
+        <div class="product-card"><span class="product-emoji">🏠</span><div class="product-name">Home Appliances</div><span class="product-tag">Home</span></div>
+        <div class="product-card"><span class="product-emoji">🫧</span><div class="product-name">Washing Machines</div><span class="product-tag">Home</span></div>
+        <div class="product-card"><span class="product-emoji">🧊</span><div class="product-name">Fridges</div><span class="product-tag">Home</span></div>
+        <div class="product-card"><span class="product-emoji">👠</span><div class="product-name">Ladies Wear</div><span class="product-tag">Fashion</span></div>
+        <div class="product-card"><span class="product-emoji">💇</span><div class="product-name">Wigs</div><span class="product-tag">Beauty</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section id="why">
+    <div class="container">
+      <div class="section-label">Our Promise</div>
+      <h2 class="section-title">Why Choose Sandy's?</h2>
+      <p class="section-sub">We've built our reputation on trust, quality, and reliability — every single order.</p>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">🚚</div>
+          <h3>Fast Delivery</h3>
+          <p>We ship directly from China to Ghana with speed and efficiency, so you get your items as quickly as possible.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🔒</div>
+          <h3>Secured Import</h3>
+          <p>Every shipment is carefully handled and secured. Your goods arrive safely — every time.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">💎</div>
+          <h3>Quality Products</h3>
+          <p>We handpick every item from trusted Chinese suppliers to ensure you always get the best quality.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">💰</div>
+          <h3>Great Prices</h3>
+          <p>By sourcing directly from manufacturers, we cut out the middlemen and pass the savings on to you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="container">
+      <div class="section-label">The Process</div>
+      <h2 class="section-title">How It Works</h2>
+      <p class="section-sub">Ordering from Sandy's is simple — just three easy steps.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h3>Browse &amp; Choose</h3>
+          <p>Pick the products you want from our wide range of imported goods.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h3>Place Your Order</h3>
+          <p>Contact us via WhatsApp or fill in the order form — it takes under 2 minutes.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h3>We Import &amp; Deliver</h3>
+          <p>We handle everything from China. Your order arrives at Awoshe - Laststop.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORDER / CONTACT -->
+  <section id="order">
+    <div class="container">
+      <div class="order-wrapper">
+        <div class="order-info">
+          <div class="section-label">Get In Touch</div>
+          <h2>Ready to Order?</h2>
+          <p>Fill in the form or reach us directly via WhatsApp or phone. We respond fast and are always happy to help you find exactly what you need.</p>
+          <div class="contact-items">
+            <a href="https://wa.me/233571892750" target="_blank" class="contact-item">
+              <div class="contact-item-icon ci-whatsapp">📱</div>
+              <div class="contact-item-text">
+                <strong>0571-892750</strong>
+                <span>WhatsApp us anytime</span>
+              </div>
+            </a>
+            <a href="tel:+233591317129" class="contact-item">
+              <div class="contact-item-icon ci-phone">📞</div>
+              <div class="contact-item-text">
+                <strong>0591-317129</strong>
+                <span>Call us directly</span>
+              </div>
+            </a>
+            <div class="contact-item" style="cursor:default;">
+              <div class="contact-item-icon ci-location">📍</div>
+              <div class="contact-item-text">
+                <strong>Awoshe - Laststop</strong>
+                <span>Ghana</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="order-form">
+          <h3>Place an Order</h3>
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" id="fname" placeholder="Your name" />
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" id="fphone" placeholder="e.g. 0241234567" />
+          </div>
+          <div class="form-group">
+            <label>Product Category</label>
+            <select id="fcat">
+              <option value="">Select a category...</option>
+              <option>Bags</option>
+              <option>Kitchen Appliances</option>
+              <option>Dresses</option>
+              <option>Perfume</option>
+              <option>Home Appliances</option>
+              <option>Washing Machines</option>
+              <option>Fridges</option>
+              <option>Ladies Wear</option>
+              <option>Wigs</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Order Details</label>
+            <textarea id="fdetail" placeholder="Describe what you want, colour, size, quantity..."></textarea>
+          </div>
+          <button class="form-submit" onclick="submitOrder()">Send Order via WhatsApp 📲</button>
+          <p class="form-note">Your order will be sent directly to Sandy via WhatsApp.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 <strong>Sandy's Imports</strong> · Awoshe - Laststop, Ghana · All rights reserved</p>
+    <p style="margin-top:6px;">Built with ❤️ for Sandy's customers</p>
+  </footer>
+
+  <!-- WhatsApp Float Button -->
+  <a class="wa-float" href="https://wa.me/233571892750" target="_blank" title="Chat on WhatsApp">💬</a>
+
+  <!-- Toast Notification -->
+  <div id="toast">✅ Order sent to Sandy via WhatsApp!</div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+
+    function submitOrder() {
+      const name    = document.getElementById('fname').value.trim();
+      const phone   = document.getElementById('fphone').value.trim();
+      const cat     = document.getElementById('fcat').value;
+      const detail  = document.getElementById('fdetail').value.trim();
+
+      if (!name || !phone || !cat) {
+        alert('Please fill in your name, phone number, and product category.');
+        return;
+      }
+
+      const msg = `Hello Sandy! 👋\n\nI'd like to place an order:\n\n👤 *Name:* ${name}\n📞 *Phone:* ${phone}\n🛍️ *Category:* ${cat}\n📝 *Details:* ${detail || 'Not specified'}\n\nPlease assist me. Thank you!`;
+      const url = `https://wa.me/233571892750?text=${encodeURIComponent(msg)}`;
+      window.open(url, '_blank');
+
+      const toast = document.getElementById('toast');
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3500);
+
+      document.getElementById('fname').value = '';
+      document.getElementById('fphone').value = '';
+      document.getElementById('fcat').value = '';
+      document.getElementById('fdetail').value = '';
+    }
+
+    // Smooth scroll for all anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+          document.getElementById('navLinks').classList.remove('open');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
