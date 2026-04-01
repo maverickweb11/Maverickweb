@@ -7,34 +7,40 @@
 
 <style>
 :root{
-    --primary:#0d1b2a;
-    --accent:#1b9aaa;
+    --primary:#0a0f1c;
+    --accent:#ff6b00;
     --light:#f5f7fa;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:Segoe UI, sans-serif;background:var(--light);}
 
-body{
-    font-family: 'Segoe UI', sans-serif;
-    background:var(--light);
-    color:#333;
+/* TOP BAR */
+.topbar{
+    background:#111;
+    color:#ccc;
+    padding:8px 20px;
+    display:flex;
+    justify-content:space-between;
+    font-size:0.85rem;
 }
 
 /* NAV */
 nav{
-    background:var(--primary);
-    color:#fff;
+    background:white;
     display:flex;
     justify-content:space-between;
     align-items:center;
     padding:15px 30px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.05);
     position:sticky;
     top:0;
     z-index:1000;
 }
 
-nav h2{
-    font-size:1.4rem;
+.logo{
+    font-weight:bold;
+    font-size:1.3rem;
 }
 
 nav ul{
@@ -44,43 +50,48 @@ nav ul{
 }
 
 nav a{
-    color:white;
     text-decoration:none;
+    color:#333;
     font-size:0.95rem;
 }
 
-nav a:hover{
-    color:var(--accent);
-}
+nav a:hover{color:var(--accent);}
 
 /* HERO */
 .hero{
-    background:linear-gradient(rgba(13,27,42,0.8),rgba(13,27,42,0.8)),
+    background:linear-gradient(rgba(10,15,28,0.7),rgba(10,15,28,0.7)),
     url('https://images.unsplash.com/photo-1519389950473-47ba0277781c');
     background-size:cover;
-    background-position:center;
     color:white;
-    text-align:center;
     padding:100px 20px;
+    text-align:center;
 }
 
-.hero h1{
-    font-size:2.8rem;
-}
-
-.hero p{
-    margin:15px 0;
-    font-size:1.2rem;
-}
-
+.hero h1{font-size:2.7rem;}
+.hero p{margin:15px 0;}
 .btn{
     background:var(--accent);
-    color:white;
     padding:12px 25px;
-    border:none;
-    border-radius:5px;
+    color:white;
     text-decoration:none;
-    cursor:pointer;
+    border-radius:5px;
+}
+
+/* CATEGORIES */
+.categories{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:15px;
+    margin-top:-40px;
+    padding:0 20px;
+}
+
+.cat{
+    background:white;
+    padding:20px;
+    text-align:center;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
 }
 
 /* SECTION */
@@ -90,32 +101,20 @@ section{
     margin:auto;
 }
 
-h2{
-    text-align:center;
-    margin-bottom:40px;
-}
+h2{text-align:center;margin-bottom:30px;}
 
-/* GRID */
+/* PRODUCT GRID */
 .grid{
     display:grid;
-    gap:25px;
+    gap:20px;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 }
 
-.grid-4{
-    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-}
-
-/* CARD */
 .card{
     background:white;
-    border-radius:12px;
+    border-radius:10px;
     overflow:hidden;
-    box-shadow:0 6px 20px rgba(0,0,0,0.08);
-    transition:0.3s;
-}
-
-.card:hover{
-    transform:translateY(-5px);
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
 }
 
 .card img{
@@ -124,28 +123,15 @@ h2{
     object-fit:cover;
 }
 
-.card-body{
-    padding:15px;
+.card-body{padding:15px;}
+.price{color:var(--accent);font-weight:bold;}
+
+/* BANNER */
+.banner{
+    background:var(--primary);
+    color:white;
+    padding:40px;
     text-align:center;
-}
-
-.price{
-    color:var(--accent);
-    font-weight:bold;
-    margin-top:8px;
-}
-
-/* WHY */
-.why{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:20px;
-    text-align:center;
-}
-
-.why div{
-    background:white;
-    padding:20px;
     border-radius:10px;
 }
 
@@ -155,20 +141,6 @@ h2{
     padding:20px;
     border-left:5px solid var(--accent);
     border-radius:10px;
-}
-
-/* CONTACT */
-form{
-    max-width:500px;
-    margin:auto;
-    display:grid;
-    gap:10px;
-}
-
-input,textarea{
-    padding:10px;
-    border:1px solid #ccc;
-    border-radius:5px;
 }
 
 /* FOOTER */
@@ -184,138 +156,106 @@ footer{
     grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
 }
 
-footer a{
-    color:#ccc;
-    text-decoration:none;
-}
-
-footer a:hover{
-    color:white;
-}
-
-.copy{
-    text-align:center;
-    margin-top:20px;
-    font-size:0.9rem;
-    color:#aaa;
-}
-
-/* MOBILE */
-@media(max-width:600px){
-    nav ul{display:none;}
-}
+.copy{text-align:center;margin-top:20px;color:#aaa;}
 </style>
 </head>
 
 <body>
 
+<!-- TOP BAR -->
+<div class="topbar">
+<span>📞 +233 XXX XXX XXX</span>
+<span>Kumasi, Ghana</span>
+</div>
+
 <!-- NAV -->
 <nav>
-    <h2>Danny Praise Computers</h2>
-    <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#products">Products</a></li>
-        <li><a href="#reviews">Reviews</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
+<div class="logo">Danny Praise Computers</div>
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#products">Laptops</a></li>
+<li><a href="#reviews">Reviews</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
-    <h1>Affordable Computers & Accessories</h1>
-    <p>Your trusted tech shop in Ghana</p>
-    <a href="#products" class="btn">Browse Products</a>
+<h1>Shop Quality Computers at Affordable Prices</h1>
+<p>Your trusted tech partner in Ghana</p>
+<a href="#products" class="btn">Shop Now</a>
+</div>
+
+<!-- CATEGORIES -->
+<div class="categories">
+<div class="cat">💻 Laptops</div>
+<div class="cat">🖥️ Desktops</div>
+<div class="cat">🔌 Accessories</div>
+<div class="cat">🛠 Repairs</div>
 </div>
 
 <!-- PRODUCTS -->
 <section id="products">
-<h2>Featured Computers</h2>
+<h2>Best Selling Laptops</h2>
 
-<div class="grid grid-4">
+<div class="grid">
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8">
 <div class="card-body">
-<h3>HP ProBook</h3>
-<p>Reliable everyday laptop</p>
-<p class="price">₵2,750</p>
+<h3>HP 250 G10</h3>
+<p class="price">₵7,500</p>
 </div>
 </div>
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853">
 <div class="card-body">
-<h3>Dell Latitude</h3>
-<p>Business performance</p>
-<p class="price">₵2,600</p>
+<h3>Dell Latitude 5420</h3>
+<p class="price">₵5,200</p>
 </div>
 </div>
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f">
 <div class="card-body">
-<h3>Lenovo ThinkPad</h3>
-<p>Strong & durable</p>
-<p class="price">₵1,600</p>
+<h3>Lenovo V15</h3>
+<p class="price">₵4,999</p>
 </div>
 </div>
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7">
 <div class="card-body">
-<h3>Gaming Laptop</h3>
-<p>High performance</p>
-<p class="price">₵14,500</p>
+<h3>Gaming Laptop RTX</h3>
+<p class="price">₵12,500</p>
 </div>
 </div>
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1517430816045-df4b7de11d1d">
 <div class="card-body">
-<h3>Apple MacBook</h3>
-<p>Premium sleek design</p>
-<p class="price">₵8,500</p>
+<h3>MacBook Pro</h3>
+<p class="price">₵9,800</p>
 </div>
 </div>
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2">
 <div class="card-body">
-<h3>Acer Aspire</h3>
-<p>Budget friendly</p>
-<p class="price">₵1,850</p>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3">
-<div class="card-body">
-<h3>Desktop Setup</h3>
-<p>Complete office setup</p>
+<h3>Acer Aspire 5</h3>
 <p class="price">₵3,200</p>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1593642634443-44adaa06623a">
-<div class="card-body">
-<h3>Mini PC</h3>
-<p>Compact powerful system</p>
-<p class="price">₵2,200</p>
 </div>
 </div>
 
 </div>
 </section>
 
-<!-- WHY -->
+<!-- PROMO BANNER -->
 <section>
-<h2>Why Choose Us</h2>
-<div class="why">
-<div>Affordable Prices</div>
-<div>Wide Selection</div>
-<div>Helpful Staff</div>
-<div>Quality Products</div>
+<div class="banner">
+<h2>Get Affordable Tech Deals Today</h2>
+<p>We offer quality products at competitive prices with excellent service.</p>
 </div>
 </section>
 
@@ -350,10 +290,10 @@ footer a:hover{
 <p style="text-align:center;">📍 Kumasi, Ghana</p>
 <p style="text-align:center;">📞 +233 XXX XXX XXX</p>
 
-<form>
-<input type="text" placeholder="Your Name" required>
-<input type="email" placeholder="Your Email" required>
-<textarea rows="4" placeholder="Your Message"></textarea>
+<form style="max-width:500px;margin:auto;display:grid;gap:10px;">
+<input type="text" placeholder="Your Name">
+<input type="email" placeholder="Email">
+<textarea placeholder="Message"></textarea>
 <button class="btn">Send Message</button>
 </form>
 
@@ -362,29 +302,30 @@ footer a:hover{
 <!-- FOOTER -->
 <footer>
 <div class="footer-grid">
+
 <div>
 <h3>Danny Praise Computers</h3>
-<p>Your trusted computer shop for affordable and quality devices.</p>
+<p>Affordable laptops, accessories and repair services in Ghana.</p>
 </div>
 
 <div>
-<h3>Quick Links</h3>
-<p><a href="#">Home</a></p>
-<p><a href="#products">Products</a></p>
-<p><a href="#contact">Contact</a></p>
-</div>
-
-<div>
-<h3>Services</h3>
+<h3>Shop</h3>
 <p>Laptops</p>
 <p>Accessories</p>
 <p>Repairs</p>
 </div>
 
+<div>
+<h3>Company</h3>
+<p>About Us</p>
+<p>Contact</p>
 </div>
 
-<p class="copy">© 2026 Danny Praise Computers. All rights reserved.</p>
+</div>
+
+<p class="copy">© 2026 Danny Praise Computers</p>
 </footer>
 
 </body>
-    </html>
+</html>
+```0
