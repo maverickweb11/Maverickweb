@@ -4,210 +4,387 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Danny Praise Computers</title>
+
 <style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: #f5f7fa;
-        color: #333;
-    }
-    header {
-        background: #0d1b2a;
-        color: white;
-        padding: 60px 20px;
-        text-align: center;
-    }
-    header h1 {
-        margin: 0;
-        font-size: 2.5rem;
-    }
-    header p {
-        margin: 10px 0 20px;
-        font-size: 1.2rem;
-    }
-    .btn {
-        background: #1b9aaa;
-        color: white;
-        padding: 12px 25px;
-        text-decoration: none;
-        border-radius: 5px;
-        border: none;
-        cursor: pointer;
-    }
-    section {
-        padding: 50px 20px;
-        max-width: 1100px;
-        margin: auto;
-    }
-    h2 {
-        text-align: center;
-        margin-bottom: 30px;
-    }
-    .grid {
-        display: grid;
-        gap: 20px;
-    }
-    .grid-4 {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    }
-    .card {
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        text-align: center;
-    }
-    .card img {
-        width: 100%;
-        height: 150px;
-        object-fit: cover;
-        border-radius: 8px;
-    }
-    .price {
-        font-weight: bold;
-        color: #1b9aaa;
-        margin-top: 10px;
-    }
-    .reviews {
-        display: grid;
-        gap: 20px;
-    }
-    .review {
-        background: white;
-        padding: 20px;
-        border-left: 5px solid #1b9aaa;
-        border-radius: 8px;
-    }
-    ul {
-        list-style: none;
-        padding: 0;
-        text-align: center;
-    }
-    form {
-        display: grid;
-        gap: 10px;
-        max-width: 500px;
-        margin: auto;
-    }
-    input, textarea {
-        padding: 10px;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-    }
-    footer {
-        background: #0d1b2a;
-        color: white;
-        text-align: center;
-        padding: 20px;
-    }
+:root{
+    --primary:#0d1b2a;
+    --accent:#1b9aaa;
+    --light:#f5f7fa;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family: 'Segoe UI', sans-serif;
+    background:var(--light);
+    color:#333;
+}
+
+/* NAV */
+nav{
+    background:var(--primary);
+    color:#fff;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 30px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+nav h2{
+    font-size:1.4rem;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:20px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-size:0.95rem;
+}
+
+nav a:hover{
+    color:var(--accent);
+}
+
+/* HERO */
+.hero{
+    background:linear-gradient(rgba(13,27,42,0.8),rgba(13,27,42,0.8)),
+    url('https://images.unsplash.com/photo-1519389950473-47ba0277781c');
+    background-size:cover;
+    background-position:center;
+    color:white;
+    text-align:center;
+    padding:100px 20px;
+}
+
+.hero h1{
+    font-size:2.8rem;
+}
+
+.hero p{
+    margin:15px 0;
+    font-size:1.2rem;
+}
+
+.btn{
+    background:var(--accent);
+    color:white;
+    padding:12px 25px;
+    border:none;
+    border-radius:5px;
+    text-decoration:none;
+    cursor:pointer;
+}
+
+/* SECTION */
+section{
+    padding:60px 20px;
+    max-width:1200px;
+    margin:auto;
+}
+
+h2{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+/* GRID */
+.grid{
+    display:grid;
+    gap:25px;
+}
+
+.grid-4{
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+}
+
+/* CARD */
+.card{
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 6px 20px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card img{
+    width:100%;
+    height:160px;
+    object-fit:cover;
+}
+
+.card-body{
+    padding:15px;
+    text-align:center;
+}
+
+.price{
+    color:var(--accent);
+    font-weight:bold;
+    margin-top:8px;
+}
+
+/* WHY */
+.why{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+    text-align:center;
+}
+
+.why div{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+}
+
+/* REVIEWS */
+.review{
+    background:white;
+    padding:20px;
+    border-left:5px solid var(--accent);
+    border-radius:10px;
+}
+
+/* CONTACT */
+form{
+    max-width:500px;
+    margin:auto;
+    display:grid;
+    gap:10px;
+}
+
+input,textarea{
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+/* FOOTER */
+footer{
+    background:var(--primary);
+    color:white;
+    padding:40px 20px;
+}
+
+.footer-grid{
+    display:grid;
+    gap:20px;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+}
+
+footer a{
+    color:#ccc;
+    text-decoration:none;
+}
+
+footer a:hover{
+    color:white;
+}
+
+.copy{
+    text-align:center;
+    margin-top:20px;
+    font-size:0.9rem;
+    color:#aaa;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+    nav ul{display:none;}
+}
 </style>
 </head>
+
 <body>
 
-<header>
-    <h1>Danny Praise Computers</h1>
-    <p>Affordable Computers & Accessories You Can Trust</p>
-    <a href="#contact" class="btn">Contact Us</a>
-</header>
-
-<section>
-    <h2>About Us</h2>
-    <p style="text-align:center; max-width:700px; margin:auto;">
-        Danny Praise Computers offers a wide range of laptops, desktops, and accessories at affordable prices. 
-        We focus on helping customers find exactly what they need while providing reliable and honest service.
-    </p>
-</section>
-
-<section>
-    <h2>Featured Laptops</h2>
-    <div class="grid grid-4">
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8" alt="HP Laptop">
-            <h3>HP ProBook</h3>
-            <p>Reliable business laptop for everyday tasks.</p>
-            <p class="price">₵2,750</p>
-        </div>
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853" alt="Dell Laptop">
-            <h3>Dell Latitude</h3>
-            <p>Strong performance and durable build.</p>
-            <p class="price">₵2,600</p>
-        </div>
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f" alt="Lenovo Laptop">
-            <h3>Lenovo ThinkPad</h3>
-            <p>Perfect for work and multitasking.</p>
-            <p class="price">₵1,600</p>
-        </div>
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7" alt="Gaming Laptop">
-            <h3>HP Gaming Laptop</h3>
-            <p>High performance for gaming & heavy tasks.</p>
-            <p class="price">₵14,500</p>
-        </div>
-
-    </div>
-</section>
-
-<section>
-    <h2>Products & Services</h2>
-    <div class="grid grid-4">
-        <div class="card"><h3>Laptops</h3></div>
-        <div class="card"><h3>Desktops</h3></div>
-        <div class="card"><h3>Accessories</h3></div>
-        <div class="card"><h3>Repairs</h3></div>
-    </div>
-</section>
-
-<section>
-    <h2>Why Choose Us</h2>
+<!-- NAV -->
+<nav>
+    <h2>Danny Praise Computers</h2>
     <ul>
-        <li>✔ Affordable Prices</li>
-        <li>✔ Wide Selection</li>
-        <li>✔ Helpful Staff</li>
-        <li>✔ Quality Products</li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
     </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+    <h1>Affordable Computers & Accessories</h1>
+    <p>Your trusted tech shop in Ghana</p>
+    <a href="#products" class="btn">Browse Products</a>
+</div>
+
+<!-- PRODUCTS -->
+<section id="products">
+<h2>Featured Computers</h2>
+
+<div class="grid grid-4">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8">
+<div class="card-body">
+<h3>HP ProBook</h3>
+<p>Reliable everyday laptop</p>
+<p class="price">₵2,750</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853">
+<div class="card-body">
+<h3>Dell Latitude</h3>
+<p>Business performance</p>
+<p class="price">₵2,600</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f">
+<div class="card-body">
+<h3>Lenovo ThinkPad</h3>
+<p>Strong & durable</p>
+<p class="price">₵1,600</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7">
+<div class="card-body">
+<h3>Gaming Laptop</h3>
+<p>High performance</p>
+<p class="price">₵14,500</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1517430816045-df4b7de11d1d">
+<div class="card-body">
+<h3>Apple MacBook</h3>
+<p>Premium sleek design</p>
+<p class="price">₵8,500</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2">
+<div class="card-body">
+<h3>Acer Aspire</h3>
+<p>Budget friendly</p>
+<p class="price">₵1,850</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3">
+<div class="card-body">
+<h3>Desktop Setup</h3>
+<p>Complete office setup</p>
+<p class="price">₵3,200</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1593642634443-44adaa06623a">
+<div class="card-body">
+<h3>Mini PC</h3>
+<p>Compact powerful system</p>
+<p class="price">₵2,200</p>
+</div>
+</div>
+
+</div>
 </section>
 
+<!-- WHY -->
 <section>
-    <h2>Customer Reviews</h2>
-    <div class="reviews">
-        <div class="review">
-            <p>“I was looking for a laptop charger when I came across this shop. It’s not bad at all. They have assorted electronic gadgets, and their prices are very moderate compared to other shops.”</p>
-            <strong>- Samuel Baidoo</strong>
-        </div>
-        <div class="review">
-            <p>“The place was well stocked with computers and accessories, but I couldn’t get what I was looking for. They directed me to where I could get it.”</p>
-            <strong>- Moaweni Emmanuel</strong>
-        </div>
-        <div class="review">
-            <p>“Looking for anything computers, laptops, or accessories? Then this is the right place for you. They treat customers with care and their products are of good quality.”</p>
-            <strong>- Joseph Owusu Yeboah</strong>
-        </div>
-    </div>
+<h2>Why Choose Us</h2>
+<div class="why">
+<div>Affordable Prices</div>
+<div>Wide Selection</div>
+<div>Helpful Staff</div>
+<div>Quality Products</div>
+</div>
 </section>
 
+<!-- REVIEWS -->
+<section id="reviews">
+<h2>Customer Reviews</h2>
+
+<div class="grid">
+
+<div class="review">
+<p>“I was looking for a laptop charger when I came across this shop. It’s not bad at all. They have assorted electronic gadgets, and their prices are very moderate compared to other shops.”</p>
+<strong>- Samuel Baidoo</strong>
+</div>
+
+<div class="review">
+<p>“The place was well stocked with computers and accessories, but I couldn’t get what I was looking for. They directed me to where I could get it.”</p>
+<strong>- Moaweni Emmanuel</strong>
+</div>
+
+<div class="review">
+<p>“Looking for anything computers, laptops, or accessories? Then this is the right place for you. They treat customers with care and their products are of good quality.”</p>
+<strong>- Joseph Owusu Yeboah</strong>
+</div>
+
+</div>
+</section>
+
+<!-- CONTACT -->
 <section id="contact">
-    <h2>Contact Us</h2>
-    <p style="text-align:center;">📍 Kumasi, Ghana</p>
-    <p style="text-align:center;">📞 +233 XXX XXX XXX</p>
+<h2>Contact Us</h2>
 
-    <form>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea rows="4" placeholder="Your Message"></textarea>
-        <button class="btn" type="submit">Send Message</button>
-    </form>
+<p style="text-align:center;">📍 Kumasi, Ghana</p>
+<p style="text-align:center;">📞 +233 XXX XXX XXX</p>
+
+<form>
+<input type="text" placeholder="Your Name" required>
+<input type="email" placeholder="Your Email" required>
+<textarea rows="4" placeholder="Your Message"></textarea>
+<button class="btn">Send Message</button>
+</form>
+
 </section>
 
+<!-- FOOTER -->
 <footer>
-    <p>© 2026 Danny Praise Computers. All Rights Reserved.</p>
+<div class="footer-grid">
+<div>
+<h3>Danny Praise Computers</h3>
+<p>Your trusted computer shop for affordable and quality devices.</p>
+</div>
+
+<div>
+<h3>Quick Links</h3>
+<p><a href="#">Home</a></p>
+<p><a href="#products">Products</a></p>
+<p><a href="#contact">Contact</a></p>
+</div>
+
+<div>
+<h3>Services</h3>
+<p>Laptops</p>
+<p>Accessories</p>
+<p>Repairs</p>
+</div>
+
+</div>
+
+<p class="copy">© 2026 Danny Praise Computers. All rights reserved.</p>
 </footer>
 
 </body>
-</html>
-```0
+    </html>
