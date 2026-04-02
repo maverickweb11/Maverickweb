@@ -1,331 +1,366 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Danny Praise Computers</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makaay Data Hub | Amazing Offers</title>
+    <style>
+        /* --- Base & Reset --- */
+        :root {
+            --primary-purple: #4a0082; /* Deep violet from flyer */
+            --light-purple: #6c2d9e;
+            --accent-yellow: #ffea00; /* Bright yellow text */
+            --bg-light: #f8f5fb;
+            --text-dark: #333;
+            --white: #ffffff;
+        }
 
-<style>
-:root{
-    --primary:#0a0f1c;
-    --accent:#ff6b00;
-    --light:#f5f7fa;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
 
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:Segoe UI, sans-serif;background:var(--light);}
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
 
-/* TOP BAR */
-.topbar{
-    background:#111;
-    color:#ccc;
-    padding:8px 20px;
-    display:flex;
-    justify-content:space-between;
-    font-size:0.85rem;
-}
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
 
-/* NAV */
-nav{
-    background:white;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 30px;
-    box-shadow:0 2px 8px rgba(0,0,0,0.05);
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
+        /* --- Header & Navigation --- */
+        header {
+            background-color: var(--primary-purple);
+            color: var(--white);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.logo{
-    font-weight:bold;
-    font-size:1.3rem;
-}
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--accent-yellow);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-nav ul{
-    list-style:none;
-    display:flex;
-    gap:20px;
-}
+        .logo span {
+            color: var(--white);
+        }
 
-nav a{
-    text-decoration:none;
-    color:#333;
-    font-size:0.95rem;
-}
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
 
-nav a:hover{color:var(--accent);}
+        .nav-links a {
+            font-weight: 600;
+            transition: color 0.3s;
+        }
 
-/* HERO */
-.hero{
-    background:linear-gradient(rgba(10,15,28,0.7),rgba(10,15,28,0.7)),
-    url('https://images.unsplash.com/photo-1519389950473-47ba0277781c');
-    background-size:cover;
-    color:white;
-    padding:100px 20px;
-    text-align:center;
-}
+        .nav-links a:hover {
+            color: var(--accent-yellow);
+        }
 
-.hero h1{font-size:2.7rem;}
-.hero p{margin:15px 0;}
-.btn{
-    background:var(--accent);
-    padding:12px 25px;
-    color:white;
-    text-decoration:none;
-    border-radius:5px;
-}
+        .contact-btn {
+            background-color: #25D366; /* WhatsApp Green */
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.2s;
+        }
 
-/* CATEGORIES */
-.categories{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-    gap:15px;
-    margin-top:-40px;
-    padding:0 20px;
-}
+        .contact-btn:hover {
+            transform: scale(1.05);
+        }
 
-.cat{
-    background:white;
-    padding:20px;
-    text-align:center;
-    border-radius:10px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.08);
-}
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-purple) 0%, var(--light-purple) 100%);
+            color: var(--white);
+            padding: 10rem 5% 6rem;
+            text-align: center;
+        }
 
-/* SECTION */
-section{
-    padding:60px 20px;
-    max-width:1200px;
-    margin:auto;
-}
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--accent-yellow);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
 
-h2{text-align:center;margin-bottom:30px;}
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
 
-/* PRODUCT GRID */
-.grid{
-    display:grid;
-    gap:20px;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-}
+        .hero .cta {
+            background-color: var(--accent-yellow);
+            color: var(--primary-purple);
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 30px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 234, 0, 0.3);
+        }
 
-.card{
-    background:white;
-    border-radius:10px;
-    overflow:hidden;
-    box-shadow:0 5px 20px rgba(0,0,0,0.08);
-}
+        .hero .cta:hover {
+            background-color: #ffe000;
+            transform: translateY(-3px);
+        }
 
-.card img{
-    width:100%;
-    height:160px;
-    object-fit:cover;
-}
+        /* --- Pricing Sections --- */
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 5%;
+        }
 
-.card-body{padding:15px;}
-.price{color:var(--accent);font-weight:bold;}
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-purple);
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
 
-/* BANNER */
-.banner{
-    background:var(--primary);
-    color:white;
-    padding:40px;
-    text-align:center;
-    border-radius:10px;
-}
+        /* --- Grid Layouts --- */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
 
-/* REVIEWS */
-.review{
-    background:white;
-    padding:20px;
-    border-left:5px solid var(--accent);
-    border-radius:10px;
-}
+        .price-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary-purple);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-/* FOOTER */
-footer{
-    background:var(--primary);
-    color:white;
-    padding:40px 20px;
-}
+        .price-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-left-color: var(--accent-yellow);
+        }
 
-.footer-grid{
-    display:grid;
-    gap:20px;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-}
+        .package-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-purple);
+        }
 
-.copy{text-align:center;margin-top:20px;color:#aaa;}
-</style>
+        .package-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #444;
+        }
+
+        /* DSTV Specific Styling */
+        .dstv-section {
+            background-color: #f0e6f7;
+            border-radius: 20px;
+            padding: 4rem 5%;
+            margin-top: 2rem;
+        }
+
+        .dstv-card {
+            border-left: 5px solid #00529b; /* DSTV Blue hint */
+        }
+        
+        .dstv-card .package-name {
+            color: #00529b;
+        }
+
+        .monthly-tag {
+            font-size: 0.8rem;
+            color: #777;
+            display: block;
+            text-align: right;
+            font-weight: 500;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--primary-purple);
+            color: var(--white);
+            text-align: center;
+            padding: 3rem 5%;
+            margin-top: 4rem;
+        }
+
+        footer h2 {
+            color: var(--accent-yellow);
+            margin-bottom: 1rem;
+        }
+
+        .footer-contact {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 1.5rem 0;
+            display: inline-block;
+            background: rgba(255,255,255,0.1);
+            padding: 1rem 3rem;
+            border-radius: 50px;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.5rem; }
+            .section-title { font-size: 2rem; }
+        }
+    </style>
 </head>
-
 <body>
 
-<!-- TOP BAR -->
-<div class="topbar">
-<span>📞 +233 XXX XXX XXX</span>
-<span>Kumasi, Ghana</span>
-</div>
+    <header>
+        <div class="logo">Makaay <span>Data Hub</span></div>
+        <ul class="nav-links">
+            <li><a href="#data-packages">Data Plans</a></li>
+            <li><a href="#dstv-packages">DSTV Packages</a></li>
+        </ul>
+        <a href="tel:0554301432" class="contact-btn">📞 0554301432</a>
+    </header>
 
-<!-- NAV -->
-<nav>
-<div class="logo">Danny Praise Computers</div>
-<ul>
-<li><a href="#">Home</a></li>
-<li><a href="#products">Laptops</a></li>
-<li><a href="#reviews">Reviews</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-</nav>
+    <section class="hero">
+        <h1>Makaay Data Hub</h1>
+        <p>DON'T MISS THESE AMAZING OFFERS!!! Get the best deals on mobile data and DSTV subscriptions today.</p>
+        <a href="tel:0554301432" class="cta">Get Connected Now</a>
+    </section>
 
-<!-- HERO -->
-<div class="hero">
-<h1>Shop Quality Computers at Affordable Prices</h1>
-<p>Your trusted tech partner in Ghana</p>
-<a href="#products" class="btn">Shop Now</a>
-</div>
+    <section id="data-packages" class="section-container">
+        <h2 class="section-title">Internet Data Packages</h2>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <div class="package-name">10GB</div>
+                <div class="package-price">GH¢ 30</div>
+            </div>
+            <div class="price-card">
+                <div class="package-name">20GB</div>
+                <div class="package-price">GH¢ 40</div>
+            </div>
+            <div class="price-card">
+                <div class="package-name">30GB</div>
+                <div class="package-price">GH¢ 50</div>
+            </div>
+            <div class="price-card">
+                <div class="package-name">37GB</div>
+                <div class="package-price">GH¢ 60</div>
+            </div>
+            <div class="price-card">
+                <div class="package-name">40GB</div>
+                <div class="package-price">GH¢ 70</div>
+            </div>
+            <div class="price-card">
+                <div class="package-name">47GB</div>
+                <div class="package-price">GH¢ 80</div>
+            </div>
+            <div class="price-card">
+                <div class="package-name">50GB</div>
+                <div class="package-price">GH¢ 90</div>
+            </div>
+            <div class="price-card">
+                <div class="package-name">57GB</div>
+                <div class="package-price">GH¢ 100</div>
+            </div>
+            <div class="price-card">
+                <div class="package-name">1TB</div>
+                <div class="package-price">GH¢ 286</div>
+            </div>
+            <div class="price-card">
+                <div class="package-name">2TB</div>
+                <div class="package-price">GH¢ 547</div>
+            </div>
+            <div class="price-card">
+                <div class="package-name">3TB</div>
+                <div class="package-price">GH¢ 745</div>
+            </div>
+        </div>
+    </section>
 
-<!-- CATEGORIES -->
-<div class="categories">
-<div class="cat">💻 Laptops</div>
-<div class="cat">🖥️ Desktops</div>
-<div class="cat">🔌 Accessories</div>
-<div class="cat">🛠 Repairs</div>
-</div>
+    <section id="dstv-packages" class="section-container dstv-section">
+        <h2 class="section-title">Special DSTV Packages</h2>
+        <div class="pricing-grid">
+            <div class="price-card dstv-card">
+                <div class="package-name">PREMIUM</div>
+                <div>
+                    <div class="package-price">GH¢ 310</div>
+                    <span class="monthly-tag">(Monthly)</span>
+                </div>
+            </div>
+            <div class="price-card dstv-card">
+                <div class="package-name">COMPACT PLUS</div>
+                <div>
+                    <div class="package-price">GH¢ 250</div>
+                    <span class="monthly-tag">(Monthly)</span>
+                </div>
+            </div>
+            <div class="price-card dstv-card">
+                <div class="package-name">COMPACT</div>
+                <div>
+                    <div class="package-price">GH¢ 150</div>
+                    <span class="monthly-tag">(Monthly)</span>
+                </div>
+            </div>
+            <div class="price-card dstv-card">
+                <div class="package-name">FAMILY</div>
+                <div>
+                    <div class="package-price">GH¢ 100</div>
+                    <span class="monthly-tag">(Monthly)</span>
+                </div>
+            </div>
+            <div class="price-card dstv-card">
+                <div class="package-name">ACCESS</div>
+                <div>
+                    <div class="package-price">GH¢ 60</div>
+                    <span class="monthly-tag">(Monthly)</span>
+                </div>
+            </div>
+            <div class="price-card dstv-card">
+                <div class="package-name">INDIAN</div>
+                <div>
+                    <div class="package-price">GH¢ 30</div>
+                    <span class="monthly-tag">(Monthly)</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- PRODUCTS -->
-<section id="products">
-<h2>Best Selling Laptops</h2>
-
-<div class="grid">
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8">
-<div class="card-body">
-<h3>HP 250 G10</h3>
-<p class="price">₵7,500</p>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853">
-<div class="card-body">
-<h3>Dell Latitude 5420</h3>
-<p class="price">₵5,200</p>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f">
-<div class="card-body">
-<h3>Lenovo V15</h3>
-<p class="price">₵4,999</p>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7">
-<div class="card-body">
-<h3>Gaming Laptop RTX</h3>
-<p class="price">₵12,500</p>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1517430816045-df4b7de11d1d">
-<div class="card-body">
-<h3>MacBook Pro</h3>
-<p class="price">₵9,800</p>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2">
-<div class="card-body">
-<h3>Acer Aspire 5</h3>
-<p class="price">₵3,200</p>
-</div>
-</div>
-
-</div>
-</section>
-
-<!-- PROMO BANNER -->
-<section>
-<div class="banner">
-<h2>Get Affordable Tech Deals Today</h2>
-<p>We offer quality products at competitive prices with excellent service.</p>
-</div>
-</section>
-
-<!-- REVIEWS -->
-<section id="reviews">
-<h2>Customer Reviews</h2>
-
-<div class="grid">
-
-<div class="review">
-<p>“I was looking for a laptop charger when I came across this shop. It’s not bad at all. They have assorted electronic gadgets, and their prices are very moderate compared to other shops.”</p>
-<strong>- Samuel Baidoo</strong>
-</div>
-
-<div class="review">
-<p>“The place was well stocked with computers and accessories, but I couldn’t get what I was looking for. They directed me to where I could get it.”</p>
-<strong>- Moaweni Emmanuel</strong>
-</div>
-
-<div class="review">
-<p>“Looking for anything computers, laptops, or accessories? Then this is the right place for you. They treat customers with care and their products are of good quality.”</p>
-<strong>- Joseph Owusu Yeboah</strong>
-</div>
-
-</div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-<h2>Contact Us</h2>
-
-<p style="text-align:center;">📍 Kumasi, Ghana</p>
-<p style="text-align:center;">📞 +233 XXX XXX XXX</p>
-
-<form style="max-width:500px;margin:auto;display:grid;gap:10px;">
-<input type="text" placeholder="Your Name">
-<input type="email" placeholder="Email">
-<textarea placeholder="Message"></textarea>
-<button class="btn">Send Message</button>
-</form>
-
-</section>
-
-<!-- FOOTER -->
-<footer>
-<div class="footer-grid">
-
-<div>
-<h3>Danny Praise Computers</h3>
-<p>Affordable laptops, accessories and repair services in Ghana.</p>
-</div>
-
-<div>
-<h3>Shop</h3>
-<p>Laptops</p>
-<p>Accessories</p>
-<p>Repairs</p>
-</div>
-
-<div>
-<h3>Company</h3>
-<p>About Us</p>
-<p>Contact</p>
-</div>
-
-</div>
-
-<p class="copy">© 2026 Danny Praise Computers</p>
-</footer>
+    <footer>
+        <h2>Ready to Subscribe?</h2>
+        <p>Call or message us on WhatsApp to activate your package instantly.</p>
+        <a href="tel:0554301432" class="footer-contact">📞 0554301432</a>
+        <p>&copy; 2026 Makaay Data Hub. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
-```0
